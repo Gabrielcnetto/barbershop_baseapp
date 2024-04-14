@@ -1,0 +1,82 @@
+import 'package:barbershop_baseapp/classes/Estabelecimento.dart';
+import 'package:barbershop_baseapp/rotas/Approutes.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class InitialScreenApp extends StatelessWidget {
+  const InitialScreenApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final widhtScreen = MediaQuery.of(context).size.width;
+    final heighScreen = MediaQuery.of(context).size.height;
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          width: widhtScreen,
+          height: heighScreen,
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  width: widhtScreen,
+                  height: heighScreen / 2,
+                  child: Image.asset(
+                    Estabelecimento.bannerInitial,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Seja bem vindo ao Nosso App",
+                        style: GoogleFonts.openSans(
+                          textStyle: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Estabelecimento.secondaryColor),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Agende, Verifique seus pontos e seu ranking em nossa barbearia",
+                        style: GoogleFonts.openSans(
+                          textStyle: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Estabelecimento.primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Estabelecimento.primaryColor,
+        onPressed: () {
+          Navigator.of(context).pushReplacementNamed(AppRoutesApp.LoginScreen01);
+        },
+        child: Container(
+          padding: EdgeInsets.all(5),
+          child: Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
