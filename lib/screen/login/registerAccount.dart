@@ -13,23 +13,24 @@ class RegisterAccountScreen extends StatefulWidget {
 }
 
 class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
+
+
+  final emailControler = TextEditingController();
+  final passwordControler = TextEditingController();
+  final userNameControler = TextEditingController();
+  void createAccountFNProvider() {
+    Provider.of<CreateAccount>(context, listen: false).CreateAccountProvider(
+      email: emailControler.text,
+      password: passwordControler.text,
+      userName: userNameControler.text,
+    );
+    print("TESTE BOTAO");
+  }
+
   @override
   Widget build(BuildContext context) {
-    final widhtScreen = MediaQuery.of(context).size.width;
-    final heighScreen = MediaQuery.of(context).size.height;
-
-    final emailControler = TextEditingController();
-    final passwordControler = TextEditingController();
-    final userNameControler = TextEditingController();
-
-    void createAccountFNProvider() {
-      Provider.of<CreateAccount>(context,listen: false).CreateAccountProvider(
-        email: emailControler.text,
-        password: passwordControler.text,
-        userName: userNameControler.text,
-      );
-      print("TESTE BOTAO");
-    }
+    final screenWidth = MediaQuery.of(context).size.width;
+  final  screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -37,8 +38,8 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
         child: Stack(
           children: [
             Container(
-              width: widhtScreen,
-              height: heighScreen,
+              width: screenWidth,
+              height: screenHeight,
               child: Image.asset(
                 Estabelecimento.bannerInitial,
                 fit: BoxFit.cover,
@@ -49,10 +50,10 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
               right: 0,
               left: 0,
               child: Container(
-                padding: EdgeInsets.only(top: 20),
-                width: widhtScreen,
-                height: heighScreen / 1.30,
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(top: 20),
+                width: screenWidth,
+                height: screenHeight / 1.30,
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.elliptical(25, 25),
@@ -79,7 +80,7 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -97,7 +98,7 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       //INICIO DO FORMULARIO DE CADASTRO
@@ -110,14 +111,14 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                             Text(
                               "E-mail",
                               style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 13,
                                   color: Colors.black,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -126,33 +127,33 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                                 color: Estabelecimento.secondaryColor
                                     .withOpacity(0.1),
                               ),
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 vertical: 5,
                                 horizontal: 10,
                               ),
                               child: TextFormField(
                                 controller: emailControler,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                               ),
                             ),
                             //FIM FORMULARIO DO E-MAIL
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             //INICIO FORMULARIO DO password
                             Text(
                               "Sua Senha",
                               style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 13,
                                   color: Colors.black,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -161,34 +162,34 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                                 color: Estabelecimento.secondaryColor
                                     .withOpacity(0.1),
                               ),
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 vertical: 5,
                                 horizontal: 10,
                               ),
                               child: TextFormField(
                                 controller: passwordControler,
                                 obscureText: true,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                               ),
                             ),
                             //FIM FORMULARIO DO password
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                             //INICIO FORMULARIO DO nome
                             Text(
                               "Seu nome",
                               style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 13,
                                   color: Colors.black,
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Container(
@@ -197,26 +198,26 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                                 color: Estabelecimento.secondaryColor
                                     .withOpacity(0.1),
                               ),
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 vertical: 5,
                                 horizontal: 10,
                               ),
                               child: TextFormField(
                                 controller: userNameControler,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                               ),
                             ),
                             //FIM FORMULARIO DO nome
-                            SizedBox(
+                            const SizedBox(
                               height: 15,
                             ),
                           ],
                         ),
                       ),
                       //FIM DO FORMULARIO DE CADASTRO
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Padding(
@@ -244,7 +245,7 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Padding(

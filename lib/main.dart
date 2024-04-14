@@ -1,4 +1,5 @@
 import 'package:barbershop_baseapp/classes/Estabelecimento.dart';
+import 'package:barbershop_baseapp/firebase_options.dart';
 import 'package:barbershop_baseapp/functions/createAccount.dart';
 import 'package:barbershop_baseapp/rotas/Approutes.dart';
 import 'package:barbershop_baseapp/screen/inicio/initialScreen.dart';
@@ -10,9 +11,13 @@ import 'package:provider/provider.dart';
 import 'screen/login/registerAccount.dart';
 
 Future<void> main() async {
-  await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized(); // Chame primeiro
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatefulWidget {
   
@@ -36,9 +41,9 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         title: Estabelecimento.nomeLocal,
         routes: {
-          AppRoutesApp.InitialScreenApp: (ctx) => InitialScreenApp(),
-          AppRoutesApp.LoginScreen01: (ctx) => LoginScreen01(),
-          AppRoutesApp.RegisterAccountScreen: (ctx) => RegisterAccountScreen(),
+          AppRoutesApp.InitialScreenApp: (ctx) => const InitialScreenApp(),
+          AppRoutesApp.LoginScreen01: (ctx) => const LoginScreen01(),
+          AppRoutesApp.RegisterAccountScreen: (ctx) => const RegisterAccountScreen(),
         },
       ),
     );

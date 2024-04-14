@@ -42,13 +42,13 @@ class LoginScreen01 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //FORMULARIO DO LOGIN - INICIO
                   //FORMULARIO DO EMAIL - INICIO
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     width: WidhtTela,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,18 +61,18 @@ class LoginScreen01 extends StatelessWidget {
                                   fontWeight: FontWeight.w700,
                                   color: Estabelecimento.primaryColor)),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color:
                                 Estabelecimento.secondaryColor.withOpacity(0.2),
                           ),
                           child: TextFormField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                             ),
                           ),
@@ -81,13 +81,13 @@ class LoginScreen01 extends StatelessWidget {
                     ),
                   ),
                   //FIM FORMULARIO DO EMAIL
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
 
                   //FORMULARIO DO PASSWORD - INICIO
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     width: WidhtTela,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,11 +100,11 @@ class LoginScreen01 extends StatelessWidget {
                                   fontWeight: FontWeight.w700,
                                   color: Estabelecimento.primaryColor)),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             color:
@@ -112,7 +112,7 @@ class LoginScreen01 extends StatelessWidget {
                           ),
                           child: TextFormField(
                             obscureText: true,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                             ),
                           ),
@@ -121,7 +121,7 @@ class LoginScreen01 extends StatelessWidget {
                     ),
                   ),
                   //FORMULARIO DO PASSWORD - FIM
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   //FORMULARIO DO LOGIN - FIM
@@ -142,14 +142,14 @@ class LoginScreen01 extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(vertical: 15),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Estabelecimento.primaryColor,
@@ -166,7 +166,7 @@ class LoginScreen01 extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(

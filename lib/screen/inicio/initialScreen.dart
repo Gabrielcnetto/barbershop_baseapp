@@ -31,7 +31,7 @@ class InitialScreenApp extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -43,7 +43,7 @@ class InitialScreenApp extends StatelessWidget {
                               color: Estabelecimento.secondaryColor),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -70,8 +70,8 @@ class InitialScreenApp extends StatelessWidget {
           Navigator.of(context).pushReplacementNamed(AppRoutesApp.LoginScreen01);
         },
         child: Container(
-          padding: EdgeInsets.all(5),
-          child: Icon(
+          padding: const EdgeInsets.all(5),
+          child: const Icon(
             Icons.arrow_forward_ios,
             color: Colors.white,
           ),
