@@ -1,13 +1,38 @@
 import 'dart:ui';
 
 import 'package:barbershop_baseapp/classes/Estabelecimento.dart';
+import 'package:barbershop_baseapp/functions/userLogin.dart';
 import 'package:barbershop_baseapp/rotas/Approutes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-class LoginScreen01 extends StatelessWidget {
+class LoginScreen01 extends StatefulWidget {
   const LoginScreen01({super.key});
 
+  @override
+  State<LoginScreen01> createState() => _LoginScreen01State();
+}
+
+class _LoginScreen01State extends State<LoginScreen01> {
+  final emailControler = TextEditingController();
+  final passwordControler = TextEditingController();
+
+  void userAuth() {
+    Provider.of<UserLoginApp>(context, listen: false).fazerLogin(
+      emailControler.text,
+      passwordControler.text,
+    );
+  }
+
+  bool showPass = true;
+  void ShowPass() {
+    setState(() {
+      showPass = !showPass;
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     final WidhtTela = MediaQuery.of(context).size.width;
@@ -72,6 +97,7 @@ class LoginScreen01 extends StatelessWidget {
                                 Estabelecimento.secondaryColor.withOpacity(0.2),
                           ),
                           child: TextFormField(
+                            controller: emailControler,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
                             ),
@@ -110,11 +136,26 @@ class LoginScreen01 extends StatelessWidget {
                             color:
                                 Estabelecimento.secondaryColor.withOpacity(0.2),
                           ),
-                          child: TextFormField(
-                            obscureText: true,
-                            decoration: const InputDecoration(
-                              border: InputBorder.none,
-                            ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: TextFormField(
+                                  controller: passwordControler,
+                                  obscureText: showPass,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                onTap: ShowPass,
+                                child: 
+                                
+                                Icon(
+                                 showPass ? Icons.visibility : Icons.visibility_off,
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ],
@@ -147,22 +188,25 @@ class LoginScreen01 extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Estabelecimento.primaryColor,
-                      ),
-                      width: WidhtTela,
-                      child: Text(
-                        "Entrar",
-                        style: GoogleFonts.openSans(
-                            textStyle: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 17,
-                          color: Estabelecimento.contraPrimaryColor,
-                        )),
+                    child: InkWell(
+                      onTap: userAuth,
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Estabelecimento.primaryColor,
+                        ),
+                        width: WidhtTela,
+                        child: Text(
+                          "Entrar",
+                          style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17,
+                            color: Estabelecimento.contraPrimaryColor,
+                          )),
+                        ),
                       ),
                     ),
                   ),
@@ -189,14 +233,15 @@ class LoginScreen01 extends StatelessWidget {
                             ),
                           ),
                           InkWell(
-                            onTap: (){ 
-                              Navigator.of(context).pushNamed(AppRoutesApp.RegisterAccountScreen);
+                            onTap: () {
+                              Navigator.of(context).pushNamed(
+                                  AppRoutesApp.RegisterAccountScreen);
                             },
                             child: Text(
                               "Crie a sua Conta",
-                                style: GoogleFonts.openSans(
+                              style: GoogleFonts.openSans(
                                 textStyle: TextStyle(
-                                  fontWeight: FontWeight.w600, 
+                                  fontWeight: FontWeight.w600,
                                   color: Estabelecimento.primaryColor,
                                   fontSize: 13,
                                 ),

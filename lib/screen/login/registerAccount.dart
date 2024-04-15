@@ -13,8 +13,6 @@ class RegisterAccountScreen extends StatefulWidget {
 }
 
 class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
-
-
   final emailControler = TextEditingController();
   final passwordControler = TextEditingController();
   final userNameControler = TextEditingController();
@@ -27,10 +25,17 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
     print("TESTE BOTAO");
   }
 
+  bool showPass = true;
+  void HidenPass() {
+    setState(() {
+      showPass = !showPass;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-  final  screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -166,12 +171,24 @@ class _RegisterAccountScreenState extends State<RegisterAccountScreen> {
                                 vertical: 5,
                                 horizontal: 10,
                               ),
-                              child: TextFormField(
-                                controller: passwordControler,
-                                obscureText: true,
-                                decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextFormField(
+                                      controller: passwordControler,
+                                      obscureText: showPass,
+                                      decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: HidenPass,
+                                    child: Icon(
+                                    showPass?  Icons.visibility : Icons.visibility_off,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             //FIM FORMULARIO DO password
