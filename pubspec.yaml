@@ -64,7 +64,11 @@ flutter:
   assets:
     - imagesOfApp/barbeariaLogo.png
     - imagesOfApp/bannerInitital.jpeg
-
+    - imagesOfApp/barbeiros/fotobarbeiro1.jpeg
+    - imagesOfApp/barbeiros/foto02.jpg
+    - imagesOfApp/barbeiros/foto3.webp
+    - imagesOfApp/banners/banner01.avif
+    - imagesOfApp/banners/banner02.avif
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
