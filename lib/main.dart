@@ -1,6 +1,7 @@
 import 'package:barbershop_baseapp/classes/Estabelecimento.dart';
 import 'package:barbershop_baseapp/firebase_options.dart';
 import 'package:barbershop_baseapp/functions/createAccount.dart';
+import 'package:barbershop_baseapp/functions/profileScreenFunctions.dart';
 import 'package:barbershop_baseapp/functions/userLogin.dart';
 import 'package:barbershop_baseapp/rotas/Approutes.dart';
 import 'package:barbershop_baseapp/screen/home/homeScreen01.dart';
@@ -41,6 +42,9 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider(
           create: (_) => UserLoginApp(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => MyProfileScreenFunctions(),
         ),
       ],
       child: MaterialApp(

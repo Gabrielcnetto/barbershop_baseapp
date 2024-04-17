@@ -26,7 +26,7 @@ class _HomePageHeaderState extends State<HomePageHeader> {
     final tamanhoTela = MediaQuery.of(context).size;
 
     double heighTelaFinal = tamanhoTela.height;
-    print("O Tamanho da tela e este: ${heighTelaFinal}");
+  
     final double setHeigh = heighTelaFinal > 800 ? heighTelaFinal / 2.3 :
      heighTelaFinal < 500 ? heighTelaFinal / 2.1 : heighTelaFinal / 1.9;
 
